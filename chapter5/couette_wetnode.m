@@ -127,12 +127,12 @@ for t=1:NSTEPS
     % Setting populations quantities at boundaries
     if wetnode==1         % 1) equilibrium scheme BC
         for k=1:NPOP
-            fprop(:,1,k)=w(k)*(rho(i,1)+3*(cx(k)*u(:,1)+cy(k)*v(:,1)));
+            fprop(:,1,k)=w(k)*(rho(:,1)+3*(cx(k)*u(:,1)+cy(k)*v(:,1)));
             fprop(:,NY,k)=w(k)*(rho(:,NY)+3*(cx(k)*u(:,NY)+cy(k)*v(:,NY)));
         end
     elseif wetnode==2      % 2) non-equilibrium extrapolation method BC
         for k=1:NPOP    
-            fprop(:,1,k)=w(k)*(rho(i,1)+3*(cx(k)*u(:,1)+cy(k)*v(:,1)))+(fprop(:,2,k)-feq(:,2,k));
+            fprop(:,1,k)=w(k)*(rho(:,1)+3*(cx(k)*u(:,1)+cy(k)*v(:,1)))+(fprop(:,2,k)-feq(:,2,k));
             fprop(:,NY,k)=w(k)*(rho(:,NY)+3*(cx(k)*u(:,NY)+cy(k)*v(:,NY)))+(fprop(:,NY-1,k)-feq(:,NY-1,k));
         end
     else                   % 3) non-equilibrium bounce-back method BC (note: rho=1)
