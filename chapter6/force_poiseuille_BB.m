@@ -100,7 +100,7 @@ feq=zeros(NX,NY,NPOP);
 for k=1:NPOP
     for i=1:NX
          % assuming density equal one and zero velocity initial state
-        feq(i,:,k)=w(k)-0.5*w(k)*3*(cx(k)*forcex(i)+3*cy(k)*forcey(i)); 
+        feq(i,:,k)=w(k)-0.5*w(k)*3*(cx(k)*forcex(i)+cy(k)*forcey(i)); 
     end
 end
 f=feq;
